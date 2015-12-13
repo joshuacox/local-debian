@@ -21,4 +21,3 @@ to remove the image
 ```
 make rmjessie
 ```
-
