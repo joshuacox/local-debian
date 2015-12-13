@@ -6,6 +6,8 @@ Building locally means we can trust the thing much more than stuff downloaded by
 
 Additionally because we are building from scratch this theoretically should work on any platform debian runs on
 
+### Manually
+
 This should be as simple as
 
 ```
@@ -19,6 +21,7 @@ You can also use the Makefile
 ```
 make jessie
 ```
+### Removal
 
 to remove the image
 
