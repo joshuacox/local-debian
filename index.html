@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Local-debian by joshuacox</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Local-debian</h1>
+        <h2>Make a local debian base image to be used for Docker</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/joshuacox/local-debian/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/joshuacox/local-debian/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/joshuacox/local-debian" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="local-debian" class="anchor" href="#local-debian" aria-hidden="true"><span class="octicon octicon-link"></span></a>local-debian</h1>
+
+<p>Make a local debian base image to be used for Docker</p>
+
+<p>Building locally means we can trust the thing much more than stuff downloaded by docker hub</p>
+
+<p>Additionally because we are building from scratch this theoretically should work on any platform debian runs on</p>
+
+<h3>
+<a id="manually" class="anchor" href="#manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manually</h3>
+
+<p>This should be as simple as</p>
+
+<pre><code>./local-jessie.sh
+</code></pre>
+
+<h3>
+<a id="makefile" class="anchor" href="#makefile" aria-hidden="true"><span class="octicon octicon-link"></span></a>Makefile</h3>
+
+<p>You can also use the Makefile</p>
+
+<pre><code>make jessie
+</code></pre>
+
+<h3>
+<a id="removal" class="anchor" href="#removal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removal</h3>
+
+<p>to remove the image</p>
+
+<pre><code>make rmjessie
+</code></pre>
+      </section>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-69335315-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
