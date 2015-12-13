@@ -15,6 +15,8 @@ help:
 
 jessie: mkimage.sh local-jessie.sh local-jessie
 
+wrapper: clean mkimage.sh image-wrapper.sh image-wrapper
+
 rmjessie:
 	docker rmi `cat jessie`
 
@@ -22,10 +24,24 @@ local-jessie:
 	sudo bash local-jessie.sh
 	docker images -q local-jessie>local-jessie
 
-local-jessie.sh: 
-	curl https://raw.githubusercontent.com/tianon/docker-brew-debian/bd71f2dfe1569968f341b9d195f8249c8f765283/jessie/build-command.txt|grep '^mkimage.sh'|sed 's^/\.\//'>local-jessie.sh
-	chmod +x local-jessie.sh
+image-wrapper: 
+	sudo bash image-wrapper.sh
+	echo 1>image-wrapper
+
+# Not to be used for now
+image-wrapper.sh: 
+	echo '#!/bin/bash'> image-wrapper.sh
+	curl https://raw.githubusercontent.com/tianon/docker-brew-debian/bd71f2dfe1569968f341b9d195f8249c8f765283/jessie/build-command.txt |grep '^mkimage.sh'|sed 's/^/\.\//'|sed 's/-d/--tag=image-wrapper\ -d/'>>local-jessie.sh
+	chmod +x image-wrapper.sh
 
 mkimage.sh:
 	wget https://raw.githubusercontent.com/docker/docker/master/contrib/mkimage.sh
 	chmod +x mkimage.sh
+
+clean:
+	-rm local-jessie
+	-rm mkimage.sh
+
+deps:
+	sudo apt-get install debootstrap
+	date -I>deps
