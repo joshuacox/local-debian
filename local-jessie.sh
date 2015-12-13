@@ -20,4 +20,3 @@ echo "Removing temp directory"
 date -I &>"$jessie"
 du -sh "$temp" &>>"$jessie"
 rm -rf "$temp"
-./mkimage.sh --tag=image-wrapper -d . debootstrap --variant=minbase --components=main --include=inetutils-ping,iproute2 --force-check-gpg jessie http://httpredir.debian.org/debian
