@@ -16,4 +16,7 @@ help:
 
 jessie:
 	sudo bash local-jessie.sh
+	docker images -q local-jessie>jessie
 
+rmjessie:
+	docker rmi `cat jessie`
