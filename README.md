@@ -8,10 +8,10 @@ Additionally because we are building from scratch this theoretically should work
 
 ### Manually
 
-This should be as simple as
+This should be as simple as passing an argument (release) that is equal to the distro of debian you want e.g.
 
 ```
-./local-jessie.sh
+./local-debian.sh --release=jessie
 ```
 
 ### Makefile
@@ -21,6 +21,12 @@ You can also use the Makefile
 ```
 make jessie
 ```
+
+There is also a stretch recipe i.e.
+```
+make stretch
+```
+
 ### Removal
 
 to remove the image

@@ -7,22 +7,9 @@ help:
 	@echo "-- Help Menu"
 	@echo ""  This is merely a base image for usage read the README file
 	@echo ""   1. make jessie       - make a local-jessie docker base-image
-
-jessie: mkimage.sh local-jessie.sh local-jessie
-
 wrapper: clean mkimage.sh image-wrapper.sh image-wrapper
 
-rmjessie:
-	-@docker rmi `cat local-jessie`
-	-@rm local-jessie
-
 update: rmjessie jessie
-
-local-jessie:
-	sudo bash local-jessie.sh
-	docker images -q local-jessie>local-jessie
-	echo 'local-jessie'>>local-jessie
-
 image-wrapper:
 	sudo bash image-wrapper.sh
 	echo 1>image-wrapper
@@ -44,3 +31,28 @@ clean:
 deps:
 	sudo apt-get install debootstrap
 	date -I>deps
+
+# Jessie
+jessie: mkimage.sh local-jessie
+
+rmjessie:
+	-@docker rmi `cat local-jessie`
+	-@rm local-jessie
+
+local-jessie:
+	sudo bash local-debian.sh --release=jessie
+	docker images -q local-jessie>local-jessie
+	echo 'local-jessie'>>local-jessie
+
+# Stretch
+stretch: mkimage.sh local-stretch
+
+rmstretch:
+	-@docker rmi `cat local-stretch`
+	-@rm local-stretch
+
+local-stretch:
+	sudo bash local-debian.sh --release=stretch
+	docker images -q local-stretch>local-stretch
+	echo 'local-stretch'>>local-stretch
+
