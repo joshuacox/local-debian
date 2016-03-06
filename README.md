@@ -34,3 +34,9 @@ to remove the image
 ```
 make rmjessie
 ```
+
+And for stretch
+
+```
+make rmstretch
+```
