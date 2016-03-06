@@ -10,6 +10,7 @@ help:
 wrapper: clean mkimage.sh image-wrapper.sh image-wrapper
 
 update: rmjessie jessie
+
 image-wrapper:
 	sudo bash image-wrapper.sh
 	echo 1>image-wrapper
@@ -36,23 +37,23 @@ deps:
 jessie: mkimage.sh local-jessie
 
 rmjessie:
-	-@docker rmi `cat local-jessie`
-	-@rm local-jessie
+	-@docker rmi `cat local-jessieIID`
+	-@rm local-jessieIID
 
-local-jessie:
+local-jessieIID:
 	sudo bash local-debian.sh --release=jessie
-	docker images -q local-jessie>local-jessie
-	echo 'local-jessie'>>local-jessie
+	docker images -q local-jessie>local-jessieIID
+	echo 'local-jessie'>>local-jessieIID
 
 # Stretch
-stretch: mkimage.sh local-stretch
+stretch: mkimage.sh local-stretchIID
 
 rmstretch:
-	-@docker rmi `cat local-stretch`
-	-@rm local-stretch
+	-@docker rmi `cat local-stretchIID`
+	-@rm local-stretchIID
 
-local-stretch:
+local-stretchIID:
 	sudo bash local-debian.sh --release=stretch
-	docker images -q local-stretch>local-stretch
-	echo 'local-stretch'>>local-stretch
+	docker images -q local-stretch>local-stretchIID
+	echo 'local-stretch'>>local-stretchIID
 
