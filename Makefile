@@ -34,7 +34,7 @@ deps:
 	date -I>deps
 
 # Jessie
-jessie: mkimage.sh local-jessie
+jessie: mkimage.sh local-jessieIID
 
 rmjessie:
 	-@docker rmi `cat local-jessieIID`
