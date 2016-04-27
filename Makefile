@@ -33,6 +33,18 @@ deps:
 	sudo apt-get install debootstrap
 	date -I>deps
 
+# Wheezy
+wheezy: mkimage.sh local-wheezyIID
+
+rmwheezy:
+	-@docker rmi `cat local-wheezyIID`
+	-@rm local-wheezyIID
+
+local-wheezyIID:
+	sudo bash local-debian.sh --release=wheezy
+	docker images -q local-wheezy>local-wheezyIID
+	echo 'local-wheezy'>>local-wheezyIID
+
 # Jessie
 jessie: mkimage.sh local-jessieIID
 
