@@ -26,7 +26,7 @@ mkimage.sh:
 	chmod +x mkimage.sh
 
 clean:
-	-rm local-jessieIID
+	-rm *IID
 	-rm mkimage.sh
 
 deps:
