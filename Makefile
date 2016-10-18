@@ -69,3 +69,15 @@ local-stretchIID:
 	docker images -q local-stretch>local-stretchIID
 	echo 'local-stretch'>>local-stretchIID
 
+# Xenial
+xenial: mkimage.sh local-xenialIID
+
+rmxenial:
+	-@docker rmi `cat local-xenialIID`
+	-@rm local-xenialIID
+
+local-xenialIID:
+	sudo bash local-debian.sh --release=xenial
+	docker images -q local-xenial>local-xenialIID
+	echo 'local-xenial'>>local-xenialIID
+
