@@ -22,7 +22,9 @@ while true; do
 	esac
 done
 
-temp=$(mktemp -d)
+rm -Rf ./tmp
+mkdir -p ./tmp
+temp=$(mktemp -d --tmpdir ./tmp)
 OUTPUT_SEMAPHORE=`pwd`/local-$release
 apt-get install -yqq debootstrap
 chmod 777 "$temp"
