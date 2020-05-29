@@ -28,7 +28,7 @@ temp=$(mktemp -d --tmpdir=./tmp local-debianXXX)
 OUTPUT_SEMAPHORE=`pwd`/local-$release
 apt-get install -yqq debootstrap
 chmod 777 "$temp"
-sudo /usr/sbin/debootstrap --variant=minbase --include=apt-utils,less,vim,locales,libterm-readline-gnu-perl $release "$temp" http://http.us.debian.org/debian/ 
+debootstrap --variant=minbase --include=apt-utils,less,vim,locales,libterm-readline-gnu-perl $release "$temp" http://http.us.debian.org/debian/ 
 echo "deb http://security.debian.org/ $release/updates main" > "$temp/etc/apt/sources.list.d/security.list"
 echo "deb http://ftp.us.debian.org/debian/ $release-updates main" > "$temp/etc/apt/sources.list.d/update.list"
 echo "Upgrading"
