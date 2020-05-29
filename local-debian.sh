@@ -24,7 +24,7 @@ done
 
 rm -Rf ./tmp
 mkdir -p ./tmp
-temp=$(mktemp -d --tmpdir ./tmp)
+temp=$(mktemp -d --tmpdir=./tmp local-debianXXX)
 OUTPUT_SEMAPHORE=`pwd`/local-$release
 apt-get install -yqq debootstrap
 chmod 777 "$temp"
